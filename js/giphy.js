@@ -1,4 +1,3 @@
-/*response.data[i].images.url */
 $(document).ready(function(){
   $("button").on("click", function(event){
     event.preventDefault();
@@ -6,9 +5,7 @@ $(document).ready(function(){
     var apiKey = "&api_key=dc6zaTOxFJmzC";
     var keyword = $("#keyword").val();
     var query = "&q=" + keyword;
-    console.log("This is " + keyword);
     var url = api+query+apiKey;
-    console.log(url);
 
     $.ajax({
       url: url,
@@ -22,10 +19,17 @@ $(document).ready(function(){
       console.log("This always happens!")
     })
   })
+
   var giphy = function(response){
     for(var i=0; i<10; i++){
-      console.log("I am here");
       $('body').append("<div class = 'gifs'><img src=" +response.data[i].images.fixed_height.url + "></div>");
     }
   }
+
+  $(window).scroll( function() {
+  if ( $(window).scrollTop() + $(window).height() ) {
+  console.log('Bottom of page');
+
+   }
+ });
 })
